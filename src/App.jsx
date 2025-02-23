@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 const flags = [
   { country: "Norway", image: "https://flagcdn.com/w320/no.png" },
-  { country: "Portugal", image: "https://flagcdn.com/w320/pt.png" },
   { country: "Thailand", image: "https://flagcdn.com/w320/th.png" },
   { country: "Chile", image: "https://flagcdn.com/w320/cl.png" },
   { country: "Egypt", image: "https://flagcdn.com/w320/eg.png" },
@@ -12,7 +11,6 @@ const flags = [
   { country: "Greece", image: "https://flagcdn.com/w320/gr.png" },
   { country: "Malaysia", image: "https://flagcdn.com/w320/my.png" },
   { country: "Finland", image: "https://flagcdn.com/w320/fi.png" },
-  { country: "New Zealand", image: "https://flagcdn.com/w320/nz.png" },
   { country: "Peru", image: "https://flagcdn.com/w320/pe.png" },
   { country: "Romania", image: "https://flagcdn.com/w320/ro.png" },
   { country: "Ukraine", image: "https://flagcdn.com/w320/ua.png" },
@@ -27,7 +25,6 @@ const flags = [
   { country: "Denmark", image: "https://flagcdn.com/w320/dk.png" },
   { country: "Serbia", image: "https://flagcdn.com/w320/rs.png" },
   { country: "Singapore", image: "https://flagcdn.com/w320/sg.png" },
-  { country: "Saudi Arabia", image: "https://flagcdn.com/w320/sa.png" },
   { country: "Morocco", image: "https://flagcdn.com/w320/ma.png" },
   { country: "Tunisia", image: "https://flagcdn.com/w320/tn.png" },
   { country: "Paraguay", image: "https://flagcdn.com/w320/py.png" },
@@ -46,13 +43,15 @@ const flags = [
   { country: "Iceland", image: "https://flagcdn.com/w320/is.png" },
   { country: "Luxembourg", image: "https://flagcdn.com/w320/lu.png" },
   { country: "Lebanon", image: "https://flagcdn.com/w320/lb.png" },
-  { country: "Peru", image: "https://flagcdn.com/w320/pe.png" },
   { country: "Algeria", image: "https://flagcdn.com/w320/dz.png" },
-  { country: "Turkey", image: "https://flagcdn.com/w320/tr.png" },
-  { country: "Iran", image: "https://flagcdn.com/w320/ir.png" },
-  { country: "Pakistan", image: "https://flagcdn.com/w320/pk.png" },
-  { country: "Bangladesh", image: "https://flagcdn.com/w320/bd.png" },
-  { country: "Afghanistan", image: "https://flagcdn.com/w320/af.png" },
+  { country: "Kazakhstan", image: "https://flagcdn.com/w320/kz.png" },
+  { country: "Uzbekistan", image: "https://flagcdn.com/w320/uz.png" },
+  { country: "Kyrgyzstan", image: "https://flagcdn.com/w320/kg.png" },
+  { country: "Armenia", image: "https://flagcdn.com/w320/am.png" },
+  { country: "Georgia", image: "https://flagcdn.com/w320/ge.png" },
+  { country: "Moldova", image: "https://flagcdn.com/w320/md.png" },
+  { country: "Bosnia and Herzegovina", image: "https://flagcdn.com/w320/ba.png" },
+  { country: "North Macedonia", image: "https://flagcdn.com/w320/mk.png" }
 ];
 
 export default function FlagQuiz() {
@@ -61,11 +60,12 @@ export default function FlagQuiz() {
 
   const nextFlag = () => {
     setShowAnswer(false);
-    setIndex(Math.floor(Math.random() * flags.length));
+    setIndex((prevIndex) => (prevIndex + 1) % flags.length);
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+      <h1 className="text-4xl font-bold mb-4">Flag Quiz</h1>
       <div className="bg-transparent p-6 rounded-2xl shadow-lg text-center w-[50%]">
         {/* Flag Container with Black Border */}
         <div className="border border-hidden p-4 rounded-lg flex items-center justify-center">
