@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-
 const flags = [
   { country: "Norway", image: "https://flagcdn.com/w320/no.png" },
   { country: "Thailand", image: "https://flagcdn.com/w320/th.png" },
@@ -70,7 +69,7 @@ export default function FlagQuiz() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
       <h1 className="text-4xl font-bold mb-4">Flag Quiz</h1>
-      <div className="bg-transparent p-6 rounded-2xl shadow-lg text-center w-[50%]">
+      <div className="bg-transparent p-6 rounded-2xl shadow-lg text-center w-[100%]">
         {/* Flag Container with Black Border */}
         <div className="border border-hidden p-4 rounded-lg flex items-center justify-center">
           <motion.img
@@ -92,15 +91,22 @@ export default function FlagQuiz() {
           >
             Show Answer
           </button>
-          <button onClick={prevFlag} className="bg-yellow-500 text-white px-4 py-2 rounded mt-2 hover:bg-yellow-600">
-            prev Flag
+
+          {/* Prev & Next Buttons Side by Side */}
+          <div className="flex gap-4 mt-4">
+            <button
+              onClick={prevFlag}
+              className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+            >
+              Prev Flag
             </button>
-          <button
-            onClick={nextFlag}
-            className="bg-green-500 text-white px-4 py-2 rounded mt-2 hover:bg-green-600"
-          >
-            Next Flag
-          </button>
+            <button
+              onClick={nextFlag}
+              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+            >
+              Next Flag
+            </button>
+          </div>
 
           {/* Country Name in Bold and Large Text */}
           {showAnswer && (
@@ -113,4 +119,3 @@ export default function FlagQuiz() {
     </div>
   );
 }
-
